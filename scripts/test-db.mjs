@@ -13,8 +13,8 @@ async function testConnection() {
 
         console.log('Connected successfully!');
 
-        const [rows] = await connection.execute('SELECT NOW() AS now, VERSION() AS version;');
-        console.log(rows[0]);
+        const [rows] = await connection.execute('DESCRIBE gearguard_db.equipment;');
+        console.table(rows);
 
         await connection.end();
     } catch (err) {
